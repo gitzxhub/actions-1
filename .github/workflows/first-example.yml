@@ -9,11 +9,18 @@ jobs:
         - name: checkout Repo
           uses: actions/checkout@v6
 
-        - name: welcome message
-          run: echo "This is my code"
+        - name: List and Read File
+          run: 
+            echo "This is my code"
+            ls -ltra
+            cat READ.md
         
-        - name: List files
-          run: ls
+        - name: Generate ASCII Artwork
+          run: cowsay -f dragon "I am Dragon " >>>>> dragon.txt 
+            
         
-        - name: Read file 
-          run: cat README.md
+#        - name: List files
+#          run: ls
+#        
+#        - name: Read file 
+#          run: cat README.md
