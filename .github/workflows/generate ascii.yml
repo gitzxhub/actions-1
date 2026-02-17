@@ -1,0 +1,27 @@
+name: Generate ASCII Artwork
+
+on: 
+  push
+
+jobs:
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout Repo
+      uses: actions/checkout@v6
+
+    - name: Install cowsay program
+      run: sudo apt-get install cowsay -y
+
+    - name: Execute Cowsay CMD
+      run: cowsay -y dragon "I am dragon" >> dragon.txt
+      
+    - name: Test File Exists
+      run: grep -i "dragon" dragon.txt
+
+    - name: Read File
+      run: cat dragon.txt
+
+    - name: checkout Repo Files
+      run: ls
+      
